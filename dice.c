@@ -35,10 +35,12 @@
  *
  */
 
+#define _POSIX_C_SOURCE 199309L
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <getopt.h>
+
 
 int rollDieN(int dieSize, int verboseMode){
 	struct timespec ts;
@@ -83,12 +85,12 @@ void main(int argc, char** argv){
 				verboseMode = 1;
 				break;
 			default:
-				printf("char: [%c]", c);
+				abort();
 		}
 	}
 
 	for (int i = 0; i < dieCount; i++){
 		diceRoll = rollDieN(dieSize, 0);
-		printf("Roll: %d\n", diceRoll); 
+		fprintf(stdout, "Roll: %d\n", diceRoll); 
 	}
 }
