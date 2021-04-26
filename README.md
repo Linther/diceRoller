@@ -7,12 +7,12 @@ A simple C library for rolling dice
   ./rolldice -d\<die size\> -c\<dice count\>
  
 ## Custom Bash Command
- 	I would recommend setting up a custom bash command so you can access
-	it from anywhere. Mine is as follows:
+ I would recommend setting up a custom bash command so you can access
+it from anywhere. Mine is as follows:
 
 
-   function roll() {
-	   ./<directory of your install> "$@"
+   function roll() {  
+	   ./\<directory of your install\> "$@"  
 	}
 
 
