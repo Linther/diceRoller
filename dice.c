@@ -40,26 +40,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <getopt.h>
+#include <rollDieN.h>
 
 
-int rollDieN(int dieSize, int verboseMode){
-	struct timespec ts;
-	int timeNano;
-	int randNumber;
-
-	//update timespec struct with current time
-	clock_gettime(0, &ts);
-
-	// Get current nanoseconds from posix 
-    timeNano = ts.tv_nsec;
-	
-	// Seed rand
-	srand(timeNano * 1000000);
-	
-	randNumber = rand() % dieSize + 1;
-
-	return(randNumber);
-}
 
 
 void main(int argc, char** argv){
@@ -91,6 +74,6 @@ void main(int argc, char** argv){
 
 	for (int i = 0; i < dieCount; i++){
 		diceRoll = rollDieN(dieSize, 0);
-		fprintf(stdout, "Roll: %d\n", diceRoll); 
+		fprintf(stdout, "D%d: %d\n", dieSize, diceRoll); 
 	}
 }
